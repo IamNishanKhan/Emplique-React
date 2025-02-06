@@ -33,11 +33,11 @@ const Portfolio = () => {
   ];
 
   return (
-    <div className="min-h-screen pt-16 bg-gray-900">
+    <div className="min-h-screen pt-16 bg-black">
       {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-br from-gray-900 via-gray-800 to-blue-900">
+      <section className="py-20 bg-gradient-to-br from-black via-gray-900 to-gray-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent">
+          <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text text-transparent">
             Our Portfolio
           </h1>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
@@ -53,7 +53,7 @@ const Portfolio = () => {
             {projects.map((project, index) => (
               <div
                 key={index}
-                className="bg-gray-800 rounded-lg overflow-hidden transform hover:scale-105 transition-all duration-300"
+                className="service-card bg-glass rounded-lg overflow-hidden"
               >
                 <img
                   src={project.image}
@@ -61,14 +61,14 @@ const Portfolio = () => {
                   className="w-full h-64 object-cover"
                 />
                 <div className="p-6">
-                  <div className="text-sm text-blue-500 mb-2">{project.category}</div>
+                  <div className="text-sm text-purple-500 mb-2">{project.category}</div>
                   <h3 className="text-2xl font-bold text-white mb-3">{project.title}</h3>
                   <p className="text-gray-400 mb-4">{project.description}</p>
                   <div className="flex flex-wrap gap-2">
                     {project.technologies.map((tech, idx) => (
                       <span
                         key={idx}
-                        className="px-3 py-1 bg-gray-700 rounded-full text-sm text-gray-300"
+                        className="px-3 py-1 bg-black/50 backdrop-blur-lg rounded-full text-sm text-gray-300"
                       >
                         {tech}
                       </span>

@@ -2,23 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-@font-face {
-  font-family: 'SF Pro Display';
-  src: url('https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-regular-webfont.woff2') format('woff2');
-  font-weight: 400;
-}
-
-@font-face {
-  font-family: 'SF Pro Display';
-  src: url('https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-medium-webfont.woff2') format('woff2');
-  font-weight: 500;
-}
-
-@font-face {
-  font-family: 'SF Pro Display';
-  src: url('https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-bold-webfont.woff2') format('woff2');
-  font-weight: 700;
-}
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap');
 
 @keyframes marquee {
   0% { transform: translateX(0); }
@@ -48,9 +32,9 @@
 }
 
 @keyframes glowPulse {
-  0% { box-shadow: 0 0 5px rgba(139, 92, 246, 0.5); }
-  50% { box-shadow: 0 0 20px rgba(139, 92, 246, 0.8); }
-  100% { box-shadow: 0 0 5px rgba(139, 92, 246, 0.5); }
+  0% { box-shadow: 0 0 5px rgba(59, 130, 246, 0.5); }
+  50% { box-shadow: 0 0 20px rgba(59, 130, 246, 0.8); }
+  100% { box-shadow: 0 0 5px rgba(59, 130, 246, 0.5); }
 }
 
 .animate-marquee {
@@ -75,27 +59,43 @@
   animation: counter 1s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
 }
 
-.tech-card {
-  animation: techFloat 3s ease-in-out infinite;
-  animation-delay: calc(var(--delay) * 0.2s);
+.service-card {
+  transition: all 0.3s ease-in-out;
 }
 
-.glow-effect {
-  animation: glowPulse 2s infinite;
+.service-card:hover {
+  transform: translateY(-10px) scale(1.02);
+}
+
+.service-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: inherit;
+  background: linear-gradient(45deg, rgba(59, 130, 246, 0.1), rgba(255,255,255,0));
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.service-card:hover::before {
+  opacity: 1;
 }
 
 @layer base {
   body {
-    @apply bg-gray-900 text-gray-100 font-['SF_Pro_Display'];
+    @apply bg-black text-gray-100 font-['JetBrains_Mono'];
   }
 }
 
 @layer utilities {
   .text-gradient {
-    @apply bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-blue-500 to-blue-700 bg-clip-text text-transparent;
   }
   
   .bg-glass {
-    @apply bg-gray-800/30 backdrop-blur-lg border border-gray-700/50;
+    @apply bg-gray-900/30 backdrop-blur-lg border border-gray-800/50;
   }
 }
